@@ -2,33 +2,40 @@ local OrionLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/jens
 
 OrionLib:MakeNotification({
 	Name = "Khoi Nguyen Hub",
-	Content = "Da load thanh cong",
+	Content = "Load thanh cong! Chao mung",
 	Image = "rbxassetid://1535438414453172",
 	Time = 3
 })
 
-local Window = OrionLib:MakeWindow({Name = "khoinguyenhub.com", HidePremium = false, SaveConfig = true, ConfigFolder = "KhoiHub"})
+local Window = OrionLib:MakeWindow({Name = "Khoi Nguyen Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "KhoiHub"})
 
-local Tab = Window:MakeTab({Name = "Key System", Icon = "rbxassetid://4483345998", PremiumOnly = false})
+-- TAB 1: MAIN
+local MainTab = Window:MakeTab({Name = "Main", Icon = "rbxassetid://4483345998", PremiumOnly = false})
 
-Tab:AddParagraph("Thong Tin", "Key Vinh Vien 30k - Ib Khoi Nguyen")
-Tab:AddTextbox({
-	Name = "Nhap Key",
-	Default = "",
-	TextDisappear = true,
-	Callback = function(Value)
-		if Value == "" then
-			OrionLib:MakeNotification({Name = "Sai Key", Content = "Ib Khoi Nguyen de mua key", Image = "rbxassetid://4483345998", Time = 3})
-		else
-			-- O day ban tu check key. Vi du key la KHOI-VIP
-			if Value == "KHOI-VIP" then
-				OrionLib:MakeNotification({Name = "Thanh Cong", Content = "Da kich hoat Hub", Image = "rbxassetid://4483345998", Time = 3})
-				-- DAN CODE HUB THAT CUA BAN VAO DAY
-			else
-				OrionLib:MakeNotification({Name = "Sai Key", Content = "Key khong dung", Image = "rbxassetid://4483345998", Time = 3})
-			end
-		end
-	end	  
+MainTab:AddButton({
+	Name = "Auto Farm",
+	Callback = function()
+      		-- DAN CODE AUTO FARM CUA BAN VAO DAY
+      		print("Auto Farm bat")
+  	end    
+})
+
+MainTab:AddButton({
+	Name = "Esp Player",
+	Callback = function()
+      		-- DAN CODE ESP VAO DAY
+      		print("Esp bat")
+  	end    
+})
+
+-- TAB 2: SETTINGS
+local SettingTab = Window:MakeTab({Name = "Settings", Icon = "rbxassetid://6031094672", PremiumOnly = false})
+
+SettingTab:AddButton({
+	Name = "Destroy UI",
+	Callback = function()
+      		OrionLib:Destroy()
+  	end    
 })
 
 OrionLib:Init()
